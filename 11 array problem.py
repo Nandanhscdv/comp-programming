@@ -4,4 +4,4 @@ if len(arr) != n:
     print("Number of finishing times does not match the specified count.")
     exit(1)
 result = 0
-print(f"Finishing times: {arr}")
+print(f"Finishing times: {arr}")    
