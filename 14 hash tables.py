@@ -1,38 +1,34 @@
-# Hash table example for fast string lookup
-# Reads a list of strings to store and then answers queries
-
-def main():
-    import sys
-    data = sys.stdin.read().strip().split()
-    if not data:
-        return
-    it = iter(data)
+def interactive_hash_lookup():
+    # 1. Initialize the Hash Table (Set)
+    dataset = set()
+    
+    # 2. Get number of strings to store
     try:
-        n = int(next(it))
-    except StopIteration:
-        return
-    stored = set()
-    for _ in range(n):
-        try:
-            s = next(it)
-        except StopIteration:
-            break
-        stored.add(s)
-    try:
-        q = int(next(it))
-    except StopIteration:
-        q = 0
-    out_lines = []
-    for _ in range(q):
-        try:
-            query = next(it)
-        except StopIteration:
-            break
-        if query in stored:
-            out_lines.append("found")
-        else:
-            out_lines.append("not found")
-    sys.stdout.write("\n".join(out_lines))
+        n = int(input("Enter the number of strings to store: "))
+        print(f"Please enter {n} strings (one per line):")
+        for i in range(n):
+            item = input(f" {i+1}: ").strip()
+            dataset.add(item)
+            
+        # 3. Get number of queries
+        q = int(input("\nEnter the number of lookup queries: "))
+        print(f"Please enter {q} query strings:")
+        
+        results = []
+        for i in range(q):
+            query = input(f" Query {i+1}: ").strip()
+            if query in dataset:
+                results.append("found")
+            else:
+                results.append("not found")
+        
+        # 4. Display results
+        print("\n--- Results ---")
+        for res in results:
+            print(res)
+            
+    except ValueError:
+        print("Invalid input. Please enter integers for counts.")
 
 if __name__ == "__main__":
-    main()
+    interactive_hash_lookup()
