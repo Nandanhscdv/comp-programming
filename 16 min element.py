@@ -5,7 +5,16 @@ try:
 
     if len(elements) != n:
         print(f"Note: You entered {len(elements)} elements instead of {n}.")
-    min_element = min(elements)
-    print(f"\nThe minimum element is: {min_element}")
+    
+    if n > 0:
+        min_element = elements[0]
+        
+        for i in range(1, len(elements)):
+            if elements[i] < min_element:
+                min_element = elements[i] 
+        print(f"\nThe minimum element is: {min_element}")
+    else:
+        print("The list is empty.")
+
 except ValueError:
     print("Invalid input. Please enter numeric values")
