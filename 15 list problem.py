@@ -8,13 +8,8 @@ try:
         print(f"Note: You entered {len(prices)} prices instead of {n}.")
 
     print("\n--- Product Receipt ---")
-    total_price = 0.0
-    
-    for price in prices:
-        print(f"Price: {price:.2f}")
-        total_price += price
+    total_price = sum(prices)
 
-    print("-----------------------")
     print(f"Total Price: {total_price:.2f}")
 
 except ValueError:
